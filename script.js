@@ -136,7 +136,41 @@ window.addEventListener('scroll', () => {
             updateCanvasOnScroll();
             ticking = false;
         });
-        ticking = true;
+    }
+});
+
+// MOBILE MENU DROPDOWN LOGIC
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-toggle-btn");
+    const dropdown = document.getElementById("mobile-dropdown");
+    
+    if (menuBtn && dropdown) {
+        menuBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle("active");
+            if (dropdown.classList.contains("active")) {
+                menuBtn.textContent = "CLOSE";
+            } else {
+                menuBtn.textContent = "MENU";
+            }
+        });
+        
+        // Close menu when a link is clicked
+        const links = dropdown.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                dropdown.classList.remove("active");
+                menuBtn.textContent = "MENU";
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (dropdown.classList.contains("active") && !dropdown.contains(e.target) && e.target !== menuBtn) {
+                dropdown.classList.remove("active");
+                menuBtn.textContent = "MENU";
+            }
+        });
     }
 });
 
