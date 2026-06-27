@@ -411,3 +411,204 @@ main {
     transform: translateY(-50px);
     filter: blur(8px);
 }
+
+/* =========================================================================
+   MOBILE RESPONSIVENESS FIXES
+   ========================================================================= */
+
+/* Prevent scrolling and overflow */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden !important;
+}
+
+/* Mobile Pop-out Box Defaults */
+.menu-toggle-btn {
+    display: none;
+    background: var(--coffee);
+    color: var(--cream);
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 1000;
+}
+
+.mobile-dropdown {
+    display: none;
+    position: fixed;
+    top: 5rem;
+    right: 5%;
+    width: 250px;
+    background: rgba(45, 25, 12, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(251, 233, 199, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem;
+    z-index: 900;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-dropdown.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-logo img {
+    height: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dropdown-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.dropdown-links a.active {
+    font-weight: 800;
+    color: #fff;
+}
+
+.dropdown-order-btn {
+    background: var(--coffee);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mobile Breakpoint Modifications */
+@media (max-width: 768px) {
+    /* Navbar override */
+    .navbar {
+        display: none !important;
+    }
+
+    .header-container {
+        justify-content: space-between;
+        padding: 0 5%;
+        width: 100%;
+        max-width: 100vw;
+        left: 0;
+        transform: none;
+        top: 1rem;
+    }
+
+    .nav-logo {
+        margin-right: auto;
+    }
+    
+    .nav-logo img {
+        height: 60px;
+    }
+
+    .nav-button {
+        display: none !important; /* Hide original order button, it's inside the dropdown now */
+    }
+
+    .menu-toggle-btn {
+        display: block;
+    }
+
+    /* Giant BG text */
+    .bg-typography {
+        font-size: 4rem; /* Hard limit for mobile */
+        white-space: normal; /* Let it wrap if needed */
+        line-height: 1;
+    }
+
+    /* Hero section vertical stacking */
+    .section#home {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .section#home .left-content {
+        margin-top: 15vh; /* Push down to avoid header */
+        margin-bottom: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+    }
+    
+    .section#home .right-content {
+        margin-top: 0; 
+        margin-bottom: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+    }
+
+    /* Push text away from edges and reduce size */
+    .main-heading {
+        font-size: 2.8rem;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+        white-space: normal !important; /* Prevent widening */
+        text-align: center;
+    }
+
+    .sub-heading {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    /* Center and stack CTA buttons */
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .right-content .cta-group {
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 320px;
+        min-height: 48px; /* Touch target */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    /* Scroll Indicator push up */
+    .scroll-indicator {
+        bottom: 2rem;
+    }
+}
