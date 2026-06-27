@@ -571,19 +571,25 @@ html, body {
     }
 
     /* Push text away from edges and reduce size */
-    .main-heading {
+    .main-heading,
+    .caramel-text .main-heading {
         font-size: 2.8rem;
         line-height: 1.1;
         margin-bottom: 0.5rem;
         white-space: normal !important; /* Prevent widening */
         text-align: center;
+        color: #fff !important;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
 
-    .sub-heading {
+    .sub-heading,
+    .caramel-text .sub-heading {
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
         max-width: 100%;
         text-align: center;
+        color: #fff !important;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
     /* Center and stack CTA buttons */
@@ -605,6 +611,10 @@ html, body {
         align-items: center;
         justify-content: center;
         font-size: 0.9rem;
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        color: #000 !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
     }
 
     /* Scroll Indicator push up */

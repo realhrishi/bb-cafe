@@ -314,6 +314,14 @@ body {
         justify-content: center;
     }
     
+    .team-layout .card-content {
+        order: 1;
+    }
+    
+    .team-layout .card-visual {
+        order: 2;
+    }
+    
     .layered-frame::before {
         top: 15px;
         left: -10px;

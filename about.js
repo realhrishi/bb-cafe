@@ -61,4 +61,27 @@ document.addEventListener("DOMContentLoaded", () => {
             image.style.transition = 'transform 0.1s linear';
         });
     });
+
+    // MOBILE MENU DROPDOWN LOGIC
+    const menuBtn = document.getElementById("menu-toggle-btn");
+    const dropdown = document.getElementById("mobile-dropdown");
+    
+    if (menuBtn && dropdown) {
+        menuBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle("active");
+            if (dropdown.classList.contains("active")) {
+                menuBtn.textContent = "CLOSE";
+            } else {
+                menuBtn.textContent = "MENU";
+            }
+        });
+        
+        document.addEventListener("click", (e) => {
+            if (dropdown.classList.contains("active") && !dropdown.contains(e.target) && e.target !== menuBtn) {
+                dropdown.classList.remove("active");
+                menuBtn.textContent = "MENU";
+            }
+        });
+    }
 });
