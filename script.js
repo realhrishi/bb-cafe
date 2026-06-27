@@ -140,6 +140,38 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// MOBILE MENU LOGIC
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+    
+    if (hamburger && mobileMenu) {
+        // Toggle menu on hamburger click
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+        
+        // Close menu when a link is clicked
+        const links = mobileMenu.querySelectorAll(".mobile-nav-links a");
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("active");
+                hamburger.classList.remove("active");
+            });
+        });
+        
+        // Close menu when clicking outside the links
+        mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove("active");
+                hamburger.classList.remove("active");
+            }
+        });
+    }
+});
+
 window.addEventListener('resize', () => {
     setCanvasDimensions();
     updateCanvasOnScroll();

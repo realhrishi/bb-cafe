@@ -304,6 +304,37 @@ main {
     animation: floating 2.5s ease-in-out infinite;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 1rem;
+    z-index: 1000;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--coffee);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: left center;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
 .mouse-icon {
     width: 24px;
     height: 36px;
