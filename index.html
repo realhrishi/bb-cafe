@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB Cafe - Premium Shawarma</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Canvas for Scroll Animation -->
+    <div class="canvas-container">
+        <canvas id="hero-lightpass"></canvas>
+    </div>
+
+    <!-- Giant Background Text Overlay (Decorative) -->
+    <div class="bg-typography">BREWS & BITES</div>
+
+    <!-- Header Container -->
+    <header class="header-container">
+        <a href="#home" class="nav-logo">
+            <img src="logo.png" alt="BB Cafe Logo">
+        </a>
+        
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="story.html">Story</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+        
+        <a href="https://qrmenu.swadho.com/b/tVvFWf5lVhKQgfL3sAxL" target="_blank" class="nav-button">ORDER &rarr;</a>
+    </header>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="mouse-icon"></div>
+        <span>SCROLL TO EXPLORE</span>
+    </div>
+
+
+
+    <!-- Content Sections (Triggers for the nav logic) -->
+    <main>
+        <section class="section" id="home">
+            <div class="left-content">
+                <h1 class="main-heading">BREWS &<br>BITES CAFE</h1>
+                <p class="sub-heading">Crafted Coffee.<br>Legendary Shawarmas.</p>
+                <div class="cta-group">
+                    <a href="https://qrmenu.swadho.com/b/tVvFWf5lVhKQgfL3sAxL" target="_blank" class="btn btn-primary">VIEW MENU &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Story -->
+        <section class="section" id="story">
+            <div class="right-content caramel-text">
+                <h2 class="main-heading">OUR STORY</h2>
+                <p class="sub-heading">From humble beginnings to your favorite neighborhood spot. Discover the passion behind every bite.</p>
+                <div class="cta-group">
+                    <a href="story.html" class="btn btn-primary btn-caramel">READ MORE &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: About -->
+        <section class="section" id="about">
+            <div class="left-content">
+                <h2 class="main-heading">ABOUT US</h2>
+                <p class="sub-heading">Quality ingredients.<br>Authentic recipes.</p>
+                <div class="cta-group">
+                    <a href="about.html" class="btn btn-primary">LEARN MORE &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Contact -->
+        <section class="section" id="contact">
+            <div class="right-content caramel-text">
+                <h2 class="main-heading">CONTACT US</h2>
+                <p class="sub-heading">Shiva Complex, BHU Rd, Hyderabad Gate, Susuwahi, Varanasi, Uttar Pradesh 221005<br>brewsandbites09@gmail.com<br>+91 9519586607</p>
+                <div class="cta-group">
+                    <a href="contact.html" class="btn btn-primary btn-caramel">GET IN TOUCH &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

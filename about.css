@@ -1,0 +1,428 @@
+/* ABOUT PAGE STYLES */
+body {
+    height: auto;
+    background-color: var(--cream);
+}
+
+.about-container {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--cream);
+    padding-top: 100px; /* Space for fixed header */
+}
+
+.editorial-card {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 10%;
+    position: relative;
+    transition: background-color 0.8s ease;
+}
+
+.card-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 6rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* BACKGROUND WORDS */
+.bg-word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'League Spartan', sans-serif;
+    font-size: 15vw;
+    font-weight: 800;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* THEMES */
+.theme-cream {
+    background-color: var(--cream);
+}
+.theme-cream .card-heading,
+.theme-cream .section-number,
+.theme-cream .signature,
+.theme-cream .bg-word {
+    color: #733713;
+}
+.theme-cream .card-body,
+.theme-cream .quote-text {
+    color: var(--coffee-hover);
+}
+.theme-cream .accent-line {
+    background-color: #733713;
+}
+.theme-cream .quote-icon {
+    color: var(--coffee);
+}
+
+.theme-caramel {
+    background-color: var(--coffee);
+}
+.theme-caramel .card-heading,
+.theme-caramel .card-subheading,
+.theme-caramel .section-number,
+.theme-caramel .signature,
+.theme-caramel .bg-word {
+    color: var(--cream);
+}
+.theme-caramel .card-body,
+.theme-caramel .quote-text {
+    color: var(--cream);
+    opacity: 0.9;
+}
+.theme-caramel .accent-line {
+    background-color: var(--cream);
+}
+.theme-caramel .quote-icon {
+    color: rgba(251, 233, 199, 0.4);
+}
+
+/* TYPOGRAPHY */
+.section-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.accent-line {
+    width: 60px;
+    height: 2px;
+    margin-bottom: 2rem;
+    transform-origin: left;
+}
+
+.card-heading {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.card-subheading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #c18553;
+    margin-bottom: 2rem;
+}
+
+.card-body {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 500px;
+}
+
+.founder-quote {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(193, 133, 83, 0.3);
+    position: relative;
+}
+.theme-caramel .founder-quote {
+    border-top-color: rgba(251, 233, 199, 0.2);
+}
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    line-height: 0;
+    position: absolute;
+    top: 3.5rem;
+    left: -2rem;
+    opacity: 0.3;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* VISUALS & EFFECTS */
+.card-visual {
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+
+.visual-left {
+    justify-content: flex-start;
+}
+
+.visual-right {
+    justify-content: flex-end;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.layered-frame {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    aspect-ratio: 4/5;
+}
+
+/* Paper layer 1 */
+.layered-frame::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.theme-caramel .layered-frame::before {
+    background: rgba(251, 233, 199, 0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Paper layer 2 */
+.layered-frame::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(193, 133, 83, 0.3);
+    border-radius: 12px;
+    z-index: 0;
+}
+
+.theme-caramel .layered-frame::after {
+    border-color: rgba(251, 233, 199, 0.3);
+}
+
+.layered-frame img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease;
+}
+
+/* Hover effect */
+.layered-frame:hover img {
+    transform: translate(5px, -5px);
+}
+.layered-frame:hover::before {
+    transform: translate(-5px, 5px);
+}
+
+/* ANIMATION STATES */
+.pre-anim-fade { opacity: 0; transition: opacity 1s ease; }
+.pre-anim-fade-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.pre-anim-slide-left { opacity: 0; transform: translateX(60px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.pre-anim-slide-right { opacity: 0; transform: translateX(-60px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.pre-anim-scale-x { transform: scaleX(0); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.layered-frame .parallax-image {
+    transform: scale(0.95);
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Active animation class */
+.anim-active .pre-anim-fade,
+.anim-active .pre-anim-fade-up,
+.anim-active .pre-anim-slide-left,
+.anim-active .pre-anim-slide-right {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+.anim-active .pre-anim-scale-x {
+    transform: scaleX(1);
+}
+.anim-active .parallax-image {
+    transform: scale(1);
+}
+
+/* Delays */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.7s; }
+
+/* RESPONSIVENESS */
+@media (max-width: 1024px) {
+    .card-heading { font-size: 3.5rem; }
+    .card-layout { gap: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .editorial-card {
+        padding: 6rem 5%;
+    }
+    
+    .card-layout {
+        flex-direction: column;
+        gap: 4rem;
+    }
+    
+    .card-visual, .card-content {
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .card-content {
+        order: 2;
+    }
+    
+    .card-visual {
+        order: 1;
+        justify-content: center;
+    }
+    
+    .layered-frame::before {
+        top: 15px;
+        left: -10px;
+    }
+}
+
+/* TEAM PROFILES */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.profile-card {
+    background: rgba(251, 233, 199, 0.08); /* Works beautifully against the Caramel background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(251, 233, 199, 0.15);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2), 0 0 15px rgba(251, 233, 199, 0.15);
+}
+
+.profile-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border: 2px solid rgba(251, 233, 199, 0.3);
+}
+
+.profile-name {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+}
+
+.profile-role {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(251, 233, 199, 0.7);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--cream);
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(251, 233, 199, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: var(--cream);
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: var(--cream);
+    color: var(--coffee);
+    transform: scale(1.1) translateY(-3px);
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Staggered delays for the team profiles */
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.6s; }

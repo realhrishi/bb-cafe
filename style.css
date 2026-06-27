@@ -1,0 +1,413 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #fbe9c7;
+    --coffee: #c18553;
+    --coffee-hover: #5b3924;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #000;
+    color: var(--cream);
+    height: 400vh; /* 4 sections, 100vh each mapped to scroll */
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, .nav-logo {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Background & Canvas */
+.canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -3;
+    overflow: hidden;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Giant Typography Overlay */
+.bg-typography {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    text-align: center;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 14vw;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    opacity: 0.12; /* 10-12% opacity */
+    z-index: -2;
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+    /* Dual-color text effect split perfectly down the middle */
+    background: linear-gradient(90deg, var(--cream) 50%, var(--coffee) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Header Container */
+.header-container {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96%;
+    max-width: 1600px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Navbar */
+.navbar {
+    flex-grow: 1;
+    height: 55px;
+    background: rgba(251, 233, 199, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(251, 233, 199, 0.2);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    margin-right: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.nav-logo img {
+    height: 90px;
+    width: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cream);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--cream);
+    transition: width 0.3s ease;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-button {
+    background-color: #733713;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 2rem;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.nav-button:hover {
+    background-color: var(--coffee-hover);
+    transform: translateY(-2px);
+}
+
+/* Layout */
+main {
+    position: relative;
+    z-index: 10;
+}
+
+.section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+/* Left & Right Content */
+.left-content {
+    max-width: 600px;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.right-content {
+    margin-left: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.main-heading {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 5.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--cream);
+    text-transform: uppercase;
+}
+
+.caramel-text .main-heading {
+    color: #733713;
+}
+
+.right-content .main-heading {
+    white-space: nowrap;
+}
+
+.sub-heading {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    color: var(--cream);
+    opacity: 0.9;
+}
+
+.right-content .sub-heading {
+    max-width: 400px;
+}
+
+.caramel-text .sub-heading {
+    color: #733713;
+    font-weight: 400;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.right-content .cta-group {
+    justify-content: flex-end;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--coffee);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(193, 133, 83, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--coffee-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(91, 57, 36, 0.5);
+}
+
+.btn-caramel {
+    background-color: #733713;
+    color: var(--cream);
+    border: 2px solid #733713;
+    box-shadow: 0 4px 15px rgba(91, 57, 36, 0.4);
+}
+
+.btn-caramel:hover {
+    background-color: var(--coffee-hover);
+    color: var(--cream);
+    border-color: var(--coffee-hover);
+    box-shadow: 0 8px 25px rgba(91, 57, 36, 0.5);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    border-color: var(--cream);
+    color: var(--cream);
+    transform: translateY(-3px);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 50;
+    opacity: 0.7;
+    animation: floating 2.5s ease-in-out infinite;
+}
+
+.mouse-icon {
+    width: 24px;
+    height: 36px;
+    border: 2px solid var(--cream);
+    border-radius: 12px;
+    position: relative;
+}
+
+.mouse-icon::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 6px;
+    background-color: var(--cream);
+    border-radius: 2px;
+}
+
+.scroll-indicator span {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--cream);
+    font-weight: 500;
+}
+
+/* Cinematic Section Navigation */
+.side-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.left-nav {
+    left: 3rem;
+}
+
+.right-nav {
+    right: 3rem;
+    align-items: flex-end;
+}
+
+.nav-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    opacity: 0; /* Hidden by default, controlled by JS */
+    transform: rotate(180deg) translateY(-20px);
+}
+
+.left-nav .nav-item {
+    transform: rotate(180deg) translateY(0);
+    opacity: 1;
+    color: var(--cream);
+}
+
+.right-nav .nav-item.visible {
+    opacity: 0.5;
+    transform: rotate(180deg) translateY(0);
+}
+
+.nav-item.active-side {
+    color: var(--cream);
+    font-weight: 600;
+    font-size: 1.1rem;
+    opacity: 1 !important;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+}
+
+/* Scroll Transitions for Left Content */
+.section {
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+}
+
+.section.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+    filter: blur(8px);
+}
